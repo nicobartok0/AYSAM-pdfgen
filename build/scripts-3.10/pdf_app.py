@@ -9,7 +9,7 @@ cx_Oracle.init_oracle_client(lib_dir=r"C:\instantclient_21_6")
 
 #Establecer conexión con base de datos Oracle.
 dsn = cx_Oracle.makedsn(host='192.168.1.5', port=1521, sid='xe') #Se establece el Datasource
-connection = cx_Oracle.connect(user="DIAMANTE", password='',
+connection = cx_Oracle.connect(user="DIAMANTE", password='DM2009DIA3',
                             dsn=dsn,
                             encoding="UTF-8")#Se establece la conexión
 c = connection.cursor()
@@ -31,7 +31,6 @@ def vacaciones():
 
     #Obtener los elementos de la tabla como variables.
 
-    print(info[1])
     año = info[1]
     legajo_usuario = info[2]
     nombre_usuario = info[3]
@@ -43,7 +42,7 @@ def vacaciones():
     retorno = info[7]
     retorno = str(retorno)
     observaciones = info[8]
-    c.close()
+
     #Código de generación de pdf de Vacaciones con FPDF
 
     font_path = './font/unifont/'
@@ -257,4 +256,3 @@ def vacaciones():
 
 if tipo == "Vacaciones":
     vacaciones()
-    id = 0
